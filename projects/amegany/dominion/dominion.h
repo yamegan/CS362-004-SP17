@@ -136,5 +136,11 @@ int playVillage(struct gameState *state, int handPos);
 int playFeast(struct gameState *state, int choice1);
 int playCouncil_Room(struct gameState *state, int handPos);
 
+//Assignment 2 functions
+int cardAdventurer(struct gameState *state,  int currentPlayer,  int temphand[MAX_HAND]);
+int cardSmithy(struct gameState *state,  int currentPlayer, int handPos);
+int cardVillage(struct gameState *state,  int currentPlayer, int handPos);
+int cardEmbargo(struct gameState *state, int choice1, int currentPlayer, int handPos);
+int cardSeaHag(struct gameState *state,  int currentPlayer);
 
 #endif
