@@ -1,0 +1,105 @@
+Bugs found in the refactored functions of David Haskell's dominion.c code
+
+CardBug001==================== 
+
+Title: Smithy Card - Adds cards to wrong player
+
+Class: Procedural Error
+
+Date: 5/24/17
+Reported By: Yannick Amegan
+Email: amegany@oregonstate.edu
+
+Product: cardtest1
+Platform: Flip
+
+Is it reproducible: Yes
+
+Description
+===========
+	The cardEffect_Smithy function calls drawCard with a player other than the current player
+
+Steps to Produce/Reproduce
+--------------------------
+	- Run cardtest1	
+	- Check current player 'hand count' assertion
+	- Check other players 'stasis' assertions
+
+Expected Results
+----------------
+	Current player's hand should be updated to have 2 additional cards
+	No other player's hand should be affected
+
+Actual Results
+--------------
+	Current player's hand has no additional cards
+	Another player's hand has been affected
+
+	
+CardBug002====================
+
+Title: Village Card - Trashes instead of Discarding
+
+Class: Logical Error
+
+Date: 5/24/17
+Reported By: Yannick Amegan
+Email: amegany@oregonstate.edu
+
+Product: cardtest3
+Platform: Flip
+
+Is it reproducible: Yes
+
+Description
+===========
+	The cardEffect_Village function calls the discardCard function with the trashFlag set to 1
+	This causes the card to be removed from play rather than moved to the discard pile
+
+Steps to Produce/Reproduce
+--------------------------
+	- Run cardtest3
+	- Check 'Card Discarded' assertion
+
+Expected Results
+----------------
+	Village card is moved to the player's discard pile after being played
+
+
+Actual Results
+--------------
+	Village card is trashed/removed from play for the duration of the game
+	
+	
+CardBug003====================
+
+Title: Sea Hag Card - Adds Sea Hag instead of Curse to opponents' decks
+
+Class: Procedural Error
+
+Date: 5/24/17
+Reported By: Yannick Amegan
+Email: amegany@oregonstate.edu
+
+Product: cardtest4
+Platform: Flip
+
+Is it reproducible: Yes
+
+Description
+===========
+	The cardEffect_SeaHag function adds a Sea Hag card to all opponents' decks
+
+Steps to Produce/Reproduce
+--------------------------
+	- Run cardtest4
+	- Check 'Curse Card' assertion for each opponent
+
+Expected Results
+----------------
+	Top card of opponents' decks is a Curse card
+
+Actual Results
+--------------
+	Top card of opponents' decks is a Sea Hag card
+	

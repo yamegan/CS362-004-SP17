@@ -7,11 +7,6 @@ int main (int argc, char** argv) {
   struct gameState G;
   int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
-		   
-	if(argc < 2){
-		printf("Correct Usage: playdom | int randomSeed\n");
-		exit(1);
-	}
 
   printf ("Starting game.\n");
 
